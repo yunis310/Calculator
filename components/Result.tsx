@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface Props {
-    id?: string;
+    result: number;
 }
 
-const Result: React.FC<Props> = () => {
+const Result: React.FC<Props> = ({ result }) => {
     return (
         <div>
-            <p>result</p>
+            <p>{result}</p>
         </div>
     );
 };
