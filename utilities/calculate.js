@@ -1,4 +1,4 @@
-function calculate(str: string) {
+function calculate({ str: string }) {
     return Number(1);
 }
 

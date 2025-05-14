@@ -1,5 +1,5 @@
 'use client';
-import Body from '@/components/Body';
+import Buttons from '@/components/Buttons';
 import Input from '@/components/Input';
 import Result from '@/components/Result';
 import calculate from '@/utilities/calculate';
@@ -20,11 +20,28 @@ export default function Home() {
         setResult(calculate(inputValue));
     }, [inputValue]);
 
+    const handleClick = (value: string) => {
+        const operators = ['+', '-', '*', '/', '%', '.'];
+
+        // Get last character from current input
+        const lastChar = inputValue.slice(-1);
+
+        if (operators.includes(value)) {
+            // If last character is also an operator, replace it with the new one
+            if (operators.includes(lastChar)) {
+                setInputValue((prev) => prev.slice(0, -1) + value);
+                return;
+            }
+        }
+
+        setInputValue((prev) => prev + value);
+    };
+
     return (
         <div className="flex flex-col items-center p-4 ">
             <Input value={inputValue} onChange={setInputValue} />
             <Result result={result} />
-            <Body />
+            <Buttons handleClick={handleClick} handleClear={handleClear} />
         </div>
     );
 }
