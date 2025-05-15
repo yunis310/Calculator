@@ -3,9 +3,10 @@ import React from 'react';
 interface Props {
     value: string;
     onChange: (value: string) => void;
+    inputRef: React.RefObject<HTMLInputElement | null>;
 }
 
-const Input: React.FC<Props> = ({ value, onChange }) => {
+const Input: React.FC<Props> = ({ value, onChange, inputRef }) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let inputValue = e.target.value;
         inputValue = inputValue.replace(/[^0-9+\-*/.]/g, '');
@@ -17,6 +18,7 @@ const Input: React.FC<Props> = ({ value, onChange }) => {
 
     return (
         <input
+            ref={inputRef}
             type="text"
             value={value}
             onChange={handleChange}

@@ -3,10 +3,15 @@ import ButtonItem from './ButtonItem';
 
 interface Props {
     handleClick: (value: string) => void;
-    handleClear: (value: string) => void;
+    handleClear: () => void;
+    handleBackspace: () => void;
 }
 
-const Buttons: React.FC<Props> = ({ handleClick, handleClear }) => {
+const Buttons: React.FC<Props> = ({
+    handleClick,
+    handleClear,
+    handleBackspace,
+}) => {
     const buttons = [
         '7',
         '8',
@@ -31,7 +36,8 @@ const Buttons: React.FC<Props> = ({ handleClick, handleClear }) => {
             {buttons.map((char) => (
                 <ButtonItem key={char} label={char} onClick={handleClick} />
             ))}
-            <div className="col-span-4">
+            <ButtonItem label="⌫" onClick={handleBackspace} />
+            <div className="col-span-3">
                 <ButtonItem label="Clear" onClick={handleClear} />
             </div>
         </div>
