@@ -20,8 +20,8 @@ const Input: React.FC<Props> = ({ value, onChange }) => {
             type="text"
             value={value}
             onChange={handleChange}
-            placeholder=""
-            className="border-2 p-1"
+            placeholder="Enter calculation"
+            className="border-2 border-gray-300 rounded-lg p-3 w-full text-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:border-blue-400 transition"
         />
     );
 };

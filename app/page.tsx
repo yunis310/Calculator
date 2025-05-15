@@ -13,18 +13,16 @@ export default function Home() {
         setInputValue('');
         setResult(0);
     };
+
     useEffect(() => {
         setResult(calculate(inputValue));
     }, [inputValue]);
 
     const handleClick = (value: string) => {
         const operators = ['+', '-', '*', '/', '%', '.'];
-
-        // Get last character from current input
         const lastChar = inputValue.slice(-1);
 
         if (operators.includes(value)) {
-            // If last character is also an operator, replace it with the new one
             if (operators.includes(lastChar)) {
                 setInputValue((prev) => prev.slice(0, -1) + value);
                 return;
@@ -35,10 +33,15 @@ export default function Home() {
     };
 
     return (
-        <div className="flex flex-col items-center p-4 ">
-            <Input value={inputValue} onChange={setInputValue} />
-            <Result result={result} />
-            <Buttons handleClick={handleClick} handleClear={handleClear} />
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-blue-100 to-purple-200 p-4">
+            <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-sm flex flex-col gap-6">
+                <div className="flex flex-col gap-2">
+                    <Input value={inputValue} onChange={setInputValue} />
+                    <Result result={result} />
+                </div>
+
+                <Buttons handleClick={handleClick} handleClear={handleClear} />
+            </div>
         </div>
     );
 }

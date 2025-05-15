@@ -1,15 +1,15 @@
 import React from 'react';
 
-interface Props {
+interface ButtonItemProps {
     label: string;
     onClick: (value: string) => void;
 }
 
-const ButtonItem: React.FC<Props> = ({ label, onClick }) => {
+const ButtonItem: React.FC<ButtonItemProps> = ({ label, onClick }) => {
     return (
         <button
             onClick={() => onClick(label)}
-            className="px-4 py-2 border rounded bg-blue-500 text-white hover:bg-blue-600 transition"
+            className="w-full h-16 flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-xl font-semibold shadow-md transition"
         >
             {label}
         </button>

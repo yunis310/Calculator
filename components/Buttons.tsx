@@ -8,30 +8,30 @@ interface Props {
 
 const Buttons: React.FC<Props> = ({ handleClick, handleClear }) => {
     const buttons = [
-        '.',
-        '+',
-        '/',
-        '*',
-        '-',
-        '%',
-        '0',
-        '9',
-        '8',
         '7',
-        '6',
-        '5',
+        '8',
+        '9',
+        '/',
         '4',
-        '3',
-        '2',
+        '5',
+        '6',
+        '*',
         '1',
+        '2',
+        '3',
+        '-',
+        '0',
+        '.',
+        '%',
+        '+',
     ];
 
     return (
-        <div>
-            <div className="flex flex-wrap gap-2 justify-center my-4">
-                {buttons.map((char) => (
-                    <ButtonItem key={char} label={char} onClick={handleClick} />
-                ))}
+        <div className="grid grid-cols-4 gap-3">
+            {buttons.map((char) => (
+                <ButtonItem key={char} label={char} onClick={handleClick} />
+            ))}
+            <div className="col-span-4">
                 <ButtonItem label="Clear" onClick={handleClear} />
             </div>
         </div>
