@@ -9,9 +9,6 @@ export default function Home() {
     const [inputValue, setInputValue] = useState('');
     const [result, setResult] = useState(0);
 
-    const handelInput = (str: string) => {
-        setInputValue(str);
-    };
     const handleClear = () => {
         setInputValue('');
         setResult(0);
